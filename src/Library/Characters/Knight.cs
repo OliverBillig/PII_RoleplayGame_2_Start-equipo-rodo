@@ -1,6 +1,6 @@
 namespace Ucu.Poo.RoleplayGame;
 
-public class Knight
+public class Knight : PJ
 {
     private int health = 100;
 
@@ -43,18 +43,5 @@ public class Knight
         {
             this.health = value < 0 ? 0 : value;
         }
-    }
-
-    public void ReceiveAttack(int power)
-    {
-        if (this.DefenseValue < power)
-        {
-            this.Health -= power - this.DefenseValue;
-        }
-    }
-
-    public void Cure()
-    {
-        this.Health = 100;
     }
 }

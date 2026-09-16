@@ -1,6 +1,6 @@
 namespace Ucu.Poo.RoleplayGame;
 
-public class Wizard
+public class Wizard : PJ
 {
     private int health = 100;
 
@@ -43,16 +43,4 @@ public class Wizard
         }
     }
 
-    public void ReceiveAttack(int power)
-    {
-        if (this.DefenseValue < power)
-        {
-            this.Health -= power - this.DefenseValue;
-        }
-    }
-
-    public void Cure()
-    {
-        this.Health = 100;
-    }
 }
