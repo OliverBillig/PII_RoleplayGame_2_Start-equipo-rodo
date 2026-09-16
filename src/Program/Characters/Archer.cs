@@ -1,21 +1,35 @@
-using System;
-
 namespace Ucu.Poo.RoleplayGame;
 
-public class PJ
+public class Archer
 {
     private int health = 100;
 
-    public PJ(string name)
+    public Archer(string name)
     {
         this.Name = name;
     }
 
     public string Name { get; set; }
     
-    public int AttackValue { get; set; }
+    public Bow Bow { get; set; }
 
-    public int DefenseValue { get; set; }
+    public Helmet Helmet { get; set; }
+
+    public int AttackValue
+    {
+        get
+        {
+            return Bow.AttackValue;
+        }
+    }
+
+    public int DefenseValue
+    {
+        get
+        {
+            return Helmet.DefenseValue;
+        }
+    }
 
     public int Health
     {

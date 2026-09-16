@@ -22,4 +22,3 @@ Console.WriteLine($"Gimli has ❤️ {gimli.Health}");
 gimli.Cure();
 
 Console.WriteLine($"Gimli has ❤️ {gimli.Health}");
-
