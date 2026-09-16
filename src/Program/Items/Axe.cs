@@ -9,4 +9,11 @@ public class Axe
             return 25;
         } 
     }
+    public int DefenseValue
+    {
+        get
+        {
+            return 25;
+        }
+    }
 }

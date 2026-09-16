@@ -9,4 +9,11 @@ public class Sword
             return 20;
         } 
     }
+    public int DefenseValue
+    {
+        get
+        {
+            return 25;
+        }
+    }
 }
