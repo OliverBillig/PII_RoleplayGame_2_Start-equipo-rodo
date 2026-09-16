@@ -37,15 +37,22 @@ public class Wizard
         }
         private set
         {
-            this.health = value < 0 ? 0 : value;
+            if (value < 0)
+            {
+                this.health = 0;
+            }
+            else
+            {
+                this.health = value;
+            }
         }
     }
 
-    public void ReceiveAttack(int power)
+    public void ReceiveAttack(int damage)
     {
-        if (this.DefenseValue < power)
+        if (this.DefenseValue < damage)
         {
-            this.Health -= power - this.DefenseValue;
+            this.Health -= damage - this.DefenseValue;
         }
     }
 

@@ -1,31 +1,63 @@
-using System;
 namespace Ucu.Poo.RoleplayGame;
 
-public class Dwarf : Character
+public class Dwarf
 {
-    public Dwarf(string name) : base(name)
+    private int health = 100;
+    public Dwarf(string name)
     {
+        this.Name = name;
     }
 
+    public string Name { get; set; }
     public Axe Axe { get; set; }
-
     public Shield Shield { get; set; }
-
     public Helmet Helmet { get; set; }
 
-    public override int AttackValue
+    public int AttackValue
     {
         get
         {
-            return this.Axe.AttackValue;
+            return Axe.AttackValue;
         }
     }
 
-    public override int DefenseValue
+    public int DefenseValue
     {
         get
         {
-            return this.Shield.DefenseValue + this.Helmet.DefenseValue;
+            return Shield.DefenseValue + Helmet.DefenseValue;
         }
+    }
+
+    public int Health
+    {
+        get
+        {
+            return this.health;
+        }
+        private set
+        {
+            if (value < 0)
+            {
+                this.health = 0;
+            }
+            else
+            {
+                this.health = value;
+            }
+        }
+    }
+
+    public void ReceiveAttack(int damage)
+    {
+        if (this.DefenseValue < damage)
+        {
+            this.Health -= damage - this.DefenseValue;
+        }
+    }
+
+    public void Cure()
+    {
+        this.Health = 100;
     }
 }
