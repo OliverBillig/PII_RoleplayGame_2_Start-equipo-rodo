@@ -3,13 +3,18 @@ namespace Ucu.Poo.RoleplayGame;
 
 public abstract class Heroes : Characters
 {
-    private int victoryPoints = 0;
+    // Propiedad pública de lectura para consultar los VP
+    public int VictoryPoints { get; private set; } = 0;
+
     public Heroes(string name) : base(name)
     {
     }
 
     public void GainVP(int vp)
     {
-        this.victoryPoints += vp;
+        if (vp > 0)
+        {
+            this.VictoryPoints += vp;
+        }
     }
 }
