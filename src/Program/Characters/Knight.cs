@@ -4,31 +4,20 @@ public class Knight : Characters, ICharacter
 {
     public Knight(string name) : base(name)
     {
+        base.AttackValue = 5;
     }
 
     public Sword Sword { get; set; }
     public Shield Shield { get; set; }
     public Armor Armor { get; set; }
 
-    public int AttackValue
+    public new int AttackValue
     {
-        get { return Sword.AttackValue; }
+        get { return base.AttackValue + Sword.AttackValue; }
     }
 
-    public int DefenseValue
+    public new int DefenseValue
     {
-        get { return Armor.DefenseValue + Shield.DefenseValue; }
-    }
-
-    public void ReceiveAttack(int damage)
-    {
-        if (this.DefenseValue < damage)
-        {
-            this.health -= damage - this.DefenseValue;
-        }
-        if (this.health <= 0)
-        {
-            Console.WriteLine($"{this.Name} has been defeated!");
-        }
+        get { return base.DefenseValue + Armor.DefenseValue + Shield.DefenseValue; }
     }
 }

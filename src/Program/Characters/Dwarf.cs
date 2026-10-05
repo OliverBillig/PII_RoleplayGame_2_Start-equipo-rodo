@@ -9,20 +9,14 @@ public class Dwarf : Characters, ICharacter
     public Shield Shield { get; set; }
     public Helmet Helmet { get; set; }
 
-    public int AttackValue
+    public new int AttackValue
     {
-        get { return Axe.AttackValue; }
+        get { return base.AttackValue + Axe.AttackValue; }
     }
 
-    public int DefenseValue
+    public new int DefenseValue
     {
-        get { return Shield.DefenseValue + Helmet.DefenseValue; }
+        get { return base.DefenseValue + Shield.DefenseValue + Helmet.DefenseValue; }
     }
-    public void ReceiveAttack(int damage)
-    {
-        if (this.DefenseValue < damage)
-        {
-            this.health -= damage - this.DefenseValue;
-        }
-    }
+    
 }
