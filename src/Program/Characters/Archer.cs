@@ -4,6 +4,7 @@ public class Archer : Characters, ICharacter
 {
     public Archer(string name) : base(name)
     {
+        base.AttackValue = 3;
     }
     public Bow Bow { get; set; }
     public Helmet Helmet { get; set; }

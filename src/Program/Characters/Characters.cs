@@ -30,7 +30,7 @@ public class Characters
     }
     public void Cure()
     {
-        health = 100; // Assuming full health is 100
+        health = 100;
     }
 
     public void ReceiveAttack(int damage)

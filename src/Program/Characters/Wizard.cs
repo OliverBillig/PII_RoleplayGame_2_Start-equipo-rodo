@@ -4,6 +4,7 @@ public class Wizard : Characters, ICharacter
 {
     public Wizard(string name) : base(name)
     {
+        base.AttackValue = 2;
     }
     public SpellsBook SpellsBook { get; set; }
     public Staff Staff { get; set; }

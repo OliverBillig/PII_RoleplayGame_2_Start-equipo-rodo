@@ -4,6 +4,7 @@ public class Dwarf : Characters, ICharacter
 {
     public Dwarf(string name) : base(name)
     {
+        base.AttackValue = 4;
     }
     public Axe Axe { get; set; }
     public Shield Shield { get; set; }
