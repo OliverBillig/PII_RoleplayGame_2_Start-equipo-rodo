@@ -8,21 +8,13 @@ public class Wizard : Characters, ICharacter
     public SpellsBook SpellsBook { get; set; }
     public Staff Staff { get; set; }
     
-    public int AttackValue
+    public new int AttackValue
     {
-        get { return SpellsBook.AttackValue + Staff.AttackValue; }
+        get { return base.AttackValue + SpellsBook.AttackValue + Staff.AttackValue; }
     }
 
-    public int DefenseValue
+    public new int DefenseValue
     {
-        get { return SpellsBook.DefenseValue + Staff.DefenseValue; }
-    }
-
-    public void ReceiveAttack(int damage)
-    {
-        if (this.DefenseValue < damage)
-        {
-            this.health -= damage - this.DefenseValue;
-        }
+        get { return base.DefenseValue + SpellsBook.DefenseValue + Staff.DefenseValue; }
     }
 }

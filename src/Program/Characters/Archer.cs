@@ -8,21 +8,13 @@ public class Archer : Characters, ICharacter
     public Bow Bow { get; set; }
     public Helmet Helmet { get; set; }
 
-    public int AttackValue
+    public new int AttackValue
     {
-        get { return Bow.AttackValue; }
+        get { return base.AttackValue + Bow.AttackValue; }
     }
 
-    public int DefenseValue
+    public new int DefenseValue
     {
-        get { return Helmet.DefenseValue; }
-    }
-
-    public void ReceiveAttack(int damage)
-    {
-        if (this.DefenseValue < damage)
-        {
-            this.health -= damage - this.DefenseValue;
-        }
+        get { return base.DefenseValue + Helmet.DefenseValue; }
     }
 }

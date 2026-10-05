@@ -11,7 +11,7 @@ public class Enemy : Characters
     public override int Health
     {
         get { return this.health; }
-        private set
+        
         {
             if (value < 0)
             {

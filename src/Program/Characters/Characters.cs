@@ -4,6 +4,8 @@ namespace Ucu.Poo.RoleplayGame;
 public class Characters
 {
     public int health = 100;
+    protected int AttackValue { get; set; }
+    public int DefenseValue { get; set; }  
     public string Name { get; private set; }
     public virtual int Health
     {
@@ -29,5 +31,13 @@ public class Characters
     public void Cure()
     {
         health = 100; // Assuming full health is 100
+    }
+
+    public void ReceiveAttack(int damage)
+    {
+        if (this.DefenseValue < damage)
+        {
+            this.health -= damage - this.DefenseValue;
+        }
     }
 }
