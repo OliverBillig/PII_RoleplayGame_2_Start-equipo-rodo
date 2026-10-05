@@ -1,19 +1,12 @@
 namespace Ucu.Poo.RoleplayGame;
 
-public class Sword : IItem
+public class Sword : Items
 {
-    public int AttackValue 
+    public Sword() : base(20, 25)
     {
-        get
-        {
-            return 20;
-        } 
     }
-    public int DefenseValue
+
+    public Sword(int attackValue, int defenseValue) : base(attackValue, defenseValue)
     {
-        get
-        {
-            return 25;
-        }
     }
 }

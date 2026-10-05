@@ -1,20 +1,12 @@
 namespace Ucu.Poo.RoleplayGame;
 
-public class Helmet : IItem
+public class Helmet : Items
 {
-    public int DefenseValue
+    public Helmet() : base(0, 18)
     {
-        get
-        {
-            return 18;
-        }
     }
 
-    public int AttackValue
+    public Helmet(int defenseValue) : base(0, defenseValue)
     {
-        get
-        {
-            return 0;
-        }
     }
 }

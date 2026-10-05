@@ -1,9 +1,11 @@
+using System.Collections.Generic;
+
 namespace Ucu.Poo.RoleplayGame;
 
-public class SpellsBook : IItem
+public class SpellsBook : IItems
 {
-    public Spell[] Spells { get; set; }
-    
+    public List<Spell> Spells { get; private set; } = new List<Spell>();
+
     public int AttackValue
     {
         get
@@ -27,6 +29,14 @@ public class SpellsBook : IItem
                 value += spell.DefenseValue;
             }
             return value;
+        }
+    }
+
+    public void AddSpell(Spell spell)
+    {
+        if (spell != null)
+        {
+            this.Spells.Add(spell);
         }
     }
 }

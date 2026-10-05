@@ -1,20 +1,12 @@
 namespace Ucu.Poo.RoleplayGame;
 
-public class Shield : IItem
+public class Shield : Items
 {
-    public int DefenseValue
+    public Shield() : base(0, 14)
     {
-        get
-        {
-            return 14;
-        }
     }
 
-    public int AttackValue
+    public Shield(int defenseValue) : base(0, defenseValue)
     {
-        get
-        {
-            return 0;
-        }
     }
 }

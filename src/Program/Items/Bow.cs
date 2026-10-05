@@ -1,20 +1,12 @@
 namespace Ucu.Poo.RoleplayGame;
 
-public class Bow : IItem
+public class Bow : Items
 {
-    public int AttackValue 
+    public Bow() : base(15, 0)
     {
-        get
-        {
-            return 15;
-        } 
     }
 
-    public int DefenseValue
+    public Bow(int attackValue) : base(attackValue, 0)
     {
-        get
-        {
-            return 0;
-        }
     }
 }

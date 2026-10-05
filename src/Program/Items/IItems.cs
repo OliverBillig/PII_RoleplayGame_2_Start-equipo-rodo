@@ -1,5 +1,5 @@
 namespace Ucu.Poo.RoleplayGame;
-public interface IItem
+public interface IItems
 {
     int AttackValue { get; }
  
