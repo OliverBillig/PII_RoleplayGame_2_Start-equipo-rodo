@@ -1,6 +1,6 @@
 namespace Ucu.Poo.RoleplayGame;
 
-public class Wizard : Heroes, ICharacter
+public class Wizard : Characters, ICharacter
 {
     public Wizard(string name) : base(name)
     {
