@@ -7,10 +7,8 @@ public class Heroes
     public int health = 100;
     public int Health
     {
-        get
-        {
-            return this.health;
-        }
+        get { return this.health; }
+        
         private set
         {
             if (value < 0)
