@@ -1,68 +1,34 @@
 namespace Ucu.Poo.RoleplayGame;
 
-public class Knight : ICharacter
+public class Knight : Heroes, ICharacter
 {
-    private int health = 100;
-
-    public Knight(string name)
+    public Knight(string name) : base(name)
     {
-        this.Name = name;
     }
 
-    public string Name { get; set; }
     public Sword Sword { get; set; }
     public Shield Shield { get; set; }
     public Armor Armor { get; set; }
-    
+
     public int AttackValue
     {
-        get
-        {
-            return Sword.AttackValue;
-        }
+        get { return Sword.AttackValue; }
     }
 
     public int DefenseValue
     {
-        get
-        {
-            return Armor.DefenseValue + Shield.DefenseValue;
-        }
-    }
-
-    public int Health
-    {
-        get
-        {
-            return this.health;
-        }
-        private set
-        {
-            if (value < 0)
-            {
-                this.health = 0;
-            }
-            else
-            {
-                this.health = value;
-            }
-        }
+        get { return Armor.DefenseValue + Shield.DefenseValue; }
     }
 
     public void ReceiveAttack(int damage)
     {
         if (this.DefenseValue < damage)
         {
-            this.Health -= damage - this.DefenseValue;
+            this.health -= damage - this.DefenseValue;
         }
-        if (this.Health <= 0)
+        if (this.health <= 0)
         {
             Console.WriteLine($"{this.Name} has been defeated!");
         }
-    }
-
-    public void Cure()
-    {
-        this.Health = 100;
     }
 }
