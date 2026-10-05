@@ -55,6 +55,10 @@ public class Knight : ICharacter
         {
             this.Health -= damage - this.DefenseValue;
         }
+        if (this.Health <= 0)
+        {
+            Console.WriteLine($"{this.Name} has been defeated!");
+        }
     }
 
     public void Cure()
