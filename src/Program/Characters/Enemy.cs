@@ -1,7 +1,7 @@
 using System;
 namespace Ucu.Poo.RoleplayGame;
 
-public class Enemy : Characters
+public abstract class Enemy : Characters
 {
     private int victoryPoints = new Random().Next(1, 11);
     public Enemy(string name) : base(name)

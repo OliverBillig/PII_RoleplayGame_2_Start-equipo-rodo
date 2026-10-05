@@ -1,7 +1,7 @@
 using System;
 namespace Ucu.Poo.RoleplayGame;
 
-public class Characters
+public abstract class Characters
 {
     public int health = 100;
     protected int AttackValue { get; set; }

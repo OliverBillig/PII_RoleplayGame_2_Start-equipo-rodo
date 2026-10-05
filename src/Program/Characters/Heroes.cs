@@ -1,7 +1,7 @@
 using System;
 namespace Ucu.Poo.RoleplayGame;
 
-public class Heroes : Characters
+public abstract class Heroes : Characters
 {
     private int victoryPoints = 0;
     public Heroes(string name) : base(name)
