@@ -1,6 +1,6 @@
 namespace Ucu.Poo.RoleplayGame;
 
-public class Archer : Heroes, ICharacter
+public class Archer : Characters, ICharacter
 {
     public Archer(string name) : base(name)
     {

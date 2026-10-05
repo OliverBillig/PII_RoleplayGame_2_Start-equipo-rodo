@@ -1,32 +1,15 @@
 using System;
 namespace Ucu.Poo.RoleplayGame;
 
-public class Heroes
+public class Heroes : Characters
 {
-    public string Name { get; private set; }
-    public int health = 100;
-    public int Health
+    private int victoryPoints = 0;
+    public Heroes(string name) : base(name)
     {
-        get { return this.health; }
-        
-        private set
-        {
-            if (value < 0)
-            {
-                this.health = 0;
-            }
-            else
-            {
-                this.health = value;
-            }
-        }
     }
-    public Heroes(string name)
+
+    public void GainVP(int vp)
     {
-        Name = name;
-    }
-    public void Cure()
-    {
-        health = 100; // Assuming full health is 100
+        this.victoryPoints += vp;
     }
 }

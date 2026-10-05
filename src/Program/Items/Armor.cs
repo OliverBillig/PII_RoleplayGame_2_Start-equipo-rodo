@@ -17,4 +17,9 @@ public class Armor : IItem
             return 0;
         }
     }
+
+    public Armor(int defenseValue)
+    {
+        super(0, defenseValue);
+    }
 }
