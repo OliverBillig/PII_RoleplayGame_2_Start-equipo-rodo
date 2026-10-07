@@ -17,10 +17,8 @@ public abstract class Enemy : Characters
             {
                 this.health = 0;
                 Console.WriteLine($"Enemy {this.Name} has been defeated! The player gains {this.victoryPoints} victory points.");
-                hero.GainVP(this.victoryPoints); // Asigna los puntos de victoria al héroe que derrotó al enemigo.
-                this.victoryPoints = 0; // Resetea los puntos de victoria después de que el enemigo sea derrotado.
-
-
+                this.GiveVp(hero); // Llama al método GiveVp para asignar los puntos de victoria al héroe.
+                
             }
             else
             {
@@ -29,6 +27,10 @@ public abstract class Enemy : Characters
         }
     }
 
-    
+    public void GiveVp (Heroes hero)
+    {
+        hero.GainVP(this.victoryPoints);
+        this.victoryPoints = 0; // Resetea los puntos de victoria después de que el enemigo sea derrotado.
+    }
 
 }
