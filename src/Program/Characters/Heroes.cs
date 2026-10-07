@@ -10,8 +10,6 @@ public abstract class Heroes : Characters
     {
     }
 
-    Heroes hero = new Heroes("Hero"); // Instancia de héroe para asignar puntos de victoria al derrotar enemigos
-
     public void GainVP(int vp)
     {
         if (vp > 0)
