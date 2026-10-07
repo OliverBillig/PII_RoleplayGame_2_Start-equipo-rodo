@@ -32,5 +32,4 @@ public abstract class Enemy : Characters
         hero.GainVP(this.victoryPoints);
         this.victoryPoints = 0; // Resetea los puntos de victoria después de que el enemigo sea derrotado.
     }
-
 }

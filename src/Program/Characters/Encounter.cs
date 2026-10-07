@@ -1,7 +1,7 @@
 using System;
 using System.Collections.Generic;
 
-namespace Ucu.Poo.RolePlayGame
+namespace Ucu.Poo.RoleplayGame
 {
     public class Encounter
     {
