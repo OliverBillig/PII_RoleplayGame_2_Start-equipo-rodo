@@ -1,35 +1,14 @@
 using System;
+
 namespace Ucu.Poo.RoleplayGame;
 
 public abstract class Enemy : Characters
 {
-    public int victoryPoints = new Random().Next(1, 11);
-    public Enemy(string name) : base(name)
-    {
-    }
+    // Esta es la propiedad que le falta o que debe ser pública:
+    public int VictoryPoints { get; protected set; }
 
-    public new int Health
+    public Enemy(string name, int victoryPoints) : base(name)
     {
-        get { return this.health; }
-        set
-        {
-            if (value < 0)
-            {
-                this.health = 0;
-                Console.WriteLine($"Enemy {this.Name} has been defeated! The player gains {this.victoryPoints} victory points.");
-                this.victoryPoints = 0;
-            }
-            else
-            {
-                this.health = value;
-            }
-        }
+        this.VictoryPoints = victoryPoints;
     }
-
-    public void GiveVp (Heroes hero)
-    {
-        hero.GainVP(this.victoryPoints);
-        this.victoryPoints = 0; // Resetea los puntos de victoria después de que el enemigo sea derrotado.
-    }
-
 }

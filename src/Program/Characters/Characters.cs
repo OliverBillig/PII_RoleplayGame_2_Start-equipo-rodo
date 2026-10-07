@@ -4,13 +4,15 @@ namespace Ucu.Poo.RoleplayGame;
 public abstract class Characters
 {
     public int health = 100;
-    protected int AttackValue { get; set; }
+    
+    // Cambiado 'protected' a 'public' para permitir la lectura en Encounter
+    public int AttackValue { get; set; } 
     public int DefenseValue { get; set; }  
     public string Name { get; private set; }
+
     public virtual int Health
     {
         get { return this.health; }
-        
         private set
         {
             if (value < 0)
@@ -28,6 +30,7 @@ public abstract class Characters
     {
         Name = name;
     }
+
     public void Cure()
     {
         health = 100;

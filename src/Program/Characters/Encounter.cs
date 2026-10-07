@@ -29,14 +29,12 @@ namespace Ucu.Poo.RoleplayGame
         /// </summary>
         public void DoEncounter()
         {
-            // Un encuentro requiere al menos 1 Héroe y 1 Enemigo
             if (HeroesList.Count == 0 || EnemyList.Count == 0)
             {
                 Console.WriteLine("No se puede iniciar el encuentro: se necesita al menos un Héroe y un Enemigo.");
                 return;
             }
 
-            // El bucle continúa mientras ambos grupos tengan al menos un participante vivo
             while (HasLivingHeroes() && HasLivingEnemies())
             {
                 List<Heroes> livingHeroes = GetLivingHeroes();
@@ -48,20 +46,17 @@ namespace Ucu.Poo.RoleplayGame
                     if (livingHeroes.Count == 0) break;
 
                     Enemy enemy = livingEnemies[i];
-                    // Asignación circular de héroes: el enemigo 'i' ataca al héroe 'i % N'
                     Heroes targetHero = livingHeroes[i % livingHeroes.Count];
 
                     targetHero.ReceiveAttack(enemy.AttackValue);
                 }
 
-                // Actualizamos la lista de héroes sobrevivientes tras el ataque enemigo
                 livingHeroes = GetLivingHeroes();
-                if (livingHeroes.Count == 0) break; // Si murieron todos los héroes, finaliza el encuentro
+                if (livingHeroes.Count == 0) break;
 
                 // 2. LOS HÉROES SOBREVIVIENTES ATACAN A TODOS LOS ENEMIGOS
                 foreach (Heroes hero in livingHeroes)
                 {
-                    // Re-obtenemos enemigos vivos para no atacar a muertos en la misma ronda
                     List<Enemy> currentLivingEnemies = GetLivingEnemies();
 
                     foreach (Enemy enemy in currentLivingEnemies)
@@ -70,10 +65,9 @@ namespace Ucu.Poo.RoleplayGame
                         {
                             enemy.ReceiveAttack(hero.AttackValue);
 
-                            // Si el héroe mata al enemigo, reclama sus Puntos de Victoria (VP)
                             if (enemy.Health <= 0)
                             {
-                                hero.GainVP(enemy.victoryPoints);
+                                hero.GainVP(enemy.VictoryPoints); // 'VictoryPoints' con V mayúscula
                             }
                         }
                     }
@@ -83,7 +77,6 @@ namespace Ucu.Poo.RoleplayGame
             // 3. VERIFICACIÓN Y CURACIÓN AL FINALIZAR EL ENCUENTRO
             foreach (Heroes hero in HeroesList)
             {
-                // Si el héroe sobrevivió y acumuló 5 o más VP, se cura
                 if (hero.Health > 0 && hero.VictoryPoints >= 5)
                 {
                     hero.Cure();
