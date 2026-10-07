@@ -1,7 +1,7 @@
 using System;
 using System.Collections.Generic;
 
-namespace Ucu.Poo.RolePlayGame
+namespace Ucu.Poo.RoleplayGame
 {
     public class Encounter
     {
@@ -73,7 +73,7 @@ namespace Ucu.Poo.RolePlayGame
                             // Si el héroe mata al enemigo, reclama sus Puntos de Victoria (VP)
                             if (enemy.Health <= 0)
                             {
-                                hero.GainVP(enemy.VictoryPoints);
+                                hero.GainVP(enemy.victoryPoints);
                             }
                         }
                     }
