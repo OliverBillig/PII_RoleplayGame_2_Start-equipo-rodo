@@ -11,4 +11,11 @@ public abstract class Enemy : Characters
     {
         this.VictoryPoints = victoryPoints;
     }
+
+    public int OnDefeatedBy(Heroes hero)
+    {
+        hero.GainVP(this.VictoryPoints);
+        this.VictoryPoints = 0;
+        return this.VictoryPoints;
+    }
 }
